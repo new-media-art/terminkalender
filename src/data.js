@@ -1,18 +1,18 @@
-const calendarWeekData = [
+export const calendarWeekData = [
     {
         id: 1,
-        shortName: 'No',
-        fullName: 'Now',
+        shortName: 'Montag',
+        fullName: 'Mo',
         events: [
              { title: 'Vue.js learnen', edit: false, color: 'success' },
-             { title: 'Üben üben, üben', edit: false, color: 'success' },    
+             { title: 'Üben, üben, üben', edit: false, color: 'info' },    
         ],
         active: false
     },
     {
         id: 2,
-        shortName: 'No',
-        fullName: 'Now',
+        shortName: 'Di',
+        fullName: 'Dinstag',
         events: [
              { title: 'Vue.js learnen', edit: false, color: 'success' },
              { title: 'Üben üben, üben', edit: false, color: 'success' },    
@@ -21,38 +21,37 @@ const calendarWeekData = [
     },
     {
         id: 3,
-        shortName: 'No',
-        fullName: 'Now',
+        shortName: 'Mi',
+        fullName: 'Mittwoch',
         events: [
              { title: 'Vue.js learnen', edit: false, color: 'success' },
-             { title: 'Üben üben, üben', edit: false, color: 'success' },    
+             { title: 'Üben üben, üben', edit: false, color: 'danger' },    
         ],
         active: false
     },
     {
         id: 4,
-        shortName: 'No',
-        fullName: 'Now',
+        shortName: 'Do',
+        fullName: 'Donerstag',
         events: [
-             { title: 'Vue.js learnen', edit: false, color: 'success' },
-             { title: 'Üben üben, üben', edit: false, color: 'success' },    
+                 
         ],
         active: false
     },
     {
         id: 5,
-        shortName: 'No',
-        fullName: 'Now',
+        shortName: 'Fr',
+        fullName: 'Freitag',
         events: [
-             { title: 'Vue.js learnen', edit: false, color: 'success' },
+             { title: 'Mountain biking', edit: false, color: 'danger' },
              { title: 'Üben üben, üben', edit: false, color: 'success' },    
         ],
         active: false
     },
     {
         id: 6,
-        shortName: 'No',
-        fullName: 'Now',
+        shortName: 'Sa',
+        fullName: 'Sammstag',
         events: [
              { title: 'Vue.js learnen', edit: false, color: 'success' },
              { title: 'Üben üben, üben', edit: false, color: 'success' },    
@@ -61,8 +60,8 @@ const calendarWeekData = [
     },
     {
         id: 7,
-        shortName: 'No',
-        fullName: 'Now',
+        shortName: 'So',
+        fullName: 'Sonntag',
         events: [
              { title: 'Vue.js learnen', edit: false, color: 'success' },
              { title: 'Üben üben, üben', edit: false, color: 'success' },    
