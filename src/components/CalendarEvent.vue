@@ -1,14 +1,14 @@
 <template>
         <div 
-            class="alert  text-center"
+            class="alert text-center"
             :class = "getEventColor" 
             >
 
 
             <div>{{ event.title }} </div>
             <div>
-                <i class="fas fa-edit mr-2"></i>
-                <i class="fas fa-trash-alt"></i>
+                <i class="fa fa-edit mr-2"></i>
+                <i class="fa fa-trash"></i>
             </div>
         </div>
 </template>
