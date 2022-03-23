@@ -1,8 +1,8 @@
 export const calendarWeekData = [
     {
         id: 1,
-        shortName: 'Montag',
-        fullName: 'Mo',
+        shortName: 'Mo',
+        fullName: 'Montag',
         events: [
              { title: 'Vue.js learnen', edit: false, color: 'success' },
              { title: 'Üben, üben, üben', edit: false, color: 'info' },    
