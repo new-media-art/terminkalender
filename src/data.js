@@ -27,7 +27,7 @@ export const calendarWeekData = [
              { title: 'Vue.js learnen', edit: false, color: 'success' },
              { title: 'Üben üben, üben', edit: false, color: 'danger' },    
         ],
-        active: false
+        active: true
     },
     {
         id: 4,

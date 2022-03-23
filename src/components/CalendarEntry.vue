@@ -6,11 +6,12 @@
           <div class="card-header text-center bg-vue">
             <h5>Neuer Termin für: <strong>{{ getNameOfActiveDay }}</strong></h5>
           </div>
-          <div class="card-body text-center">
+          <div class="card-body">
             <input
               type="text"
               class="form-control"
               placeholder="Neuer Termin"
+              v-model='eventTitle'
             />
             <div class="mt-3 text-center">
               <span
@@ -25,14 +26,16 @@
                 class="alert mr-2 square"
                 :class="[
                   eventColor === color ? getBorderColor : '',
-                  'alert-' + color,
+                  'alert-' + color
                 ]"
                 style="cursor: pointer"
-                @click="changeEventColor"
+                @click="changeEventColor(color)"
               ></span>
             </div>
             <hr />
-            <button class="btn bg-vue2 btn-block">Eintragen</button>
+            <button class="btn bg-vue2 btn-block"
+            @click="storeEvent(eventTitle)"
+            >Eintragen</button>
           </div>
         </div>
       </div>
@@ -49,27 +52,33 @@ export default {
   data() {
     return {
       eventColor: "primary",
+      eventTitle: ""
     };
-  },
-  methods:  {
-      changeEventColor: function(color) {
-          this.eventColor = color;
-      }
   },
   computed: {
     getBorderColor() {
       return "border border-" + this.eventColor;
     },
     getNameOfActiveDay() {
-        return store.getActiveDay();
+        return store.getActiveDay().fullName;
     }
   },
-};
+  methods:  {
+      changeEventColor: function(color) {
+          this.eventColor = color;
+      }
+   },
+   storeEvent: function(eventTitle, eventColor) {
+     store.storeEvent(eventTitle, eventColor);
+     this.eventTitle=';'
+   }
+  }
 </script>
 
 <style scoped>
 .bg-vue2 {
-  background-color: cadetblue;
+  background-color: rgb(65, 184, 131);
+  color: white;
 }
 .square {
   width: 40px;
