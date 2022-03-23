@@ -4,24 +4,66 @@
             :class = "getEventColor" 
             >
 
-
-            <div>{{ event.title }} </div>
-            <div>
-                <i class="fa fa-edit mr-2"></i>
-                <i class="fa fa-trash"></i>
+            <div v-if="!event.edit">
+               <div>{{ event.title }} </div>
+                <div>
+                    <i 
+                    class="fa fa-edit mr-2"
+                    style="curson: pointer;"
+                    @click="editEvent(day.id, event.title)"
+                    ></i>
+                    <i 
+                    class="fa fa-trash"
+                    style="cursor: pointer;"
+                    @click="deleteEvent(day.id, event.title)"
+                    ></i>
+                </div> 
             </div>
+
+            <div v-if="event.edit">
+                <input 
+                type="text"
+                class='form-control'
+                :placeholder="event.title"
+                v-model="newEventTitle"
+                >
+                <hr>
+                <i class="fa fa-check"
+                @click="updateEvent(day.id, event.title, newEventTitle)"
+                ></i>
+                
+            </div>
+ 
         </div>
 </template>
 
 <script>
-
+    import { store } from '../store.js'
 
     export default {
         name: 'CalendarEvent',
         props: ['event', 'day'],
+        data() {
+            return {
+                newEventTitle: ''
+            }
+        },
         computed: {
             getEventColor() {
                 return 'alert-'+this.event.color;
+            }
+        },
+        methods: {
+            editEvent(dayId, eventTitle) { 
+                store.editEvent(dayId, eventTitle)
+            },
+            updateEvent(dayId, oldEventTitle, newEventTitle) {
+                if (newEventTitle === '') newEventTitle = oldEventTitle;
+                store.updateEvent(dayId, oldEventTitle, newEventTitle);
+                this.newEventTitle = '';
+            },
+            deleteEvent(dayId, eventTitle) {
+                store.deleteEvent(dayId, eventTitle)
             }
         }
     }

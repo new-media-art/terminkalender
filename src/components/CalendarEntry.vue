@@ -7,6 +7,12 @@
             <h5>Neuer Termin für: <strong>{{ getNameOfActiveDay }}</strong></h5>
           </div>
           <div class="card-body">
+            <div 
+            class="alert alert-danger"
+            v-show="error"
+            >
+              Der Titel darf nicht leer sein
+            </div>
             <input
               type="text"
               class="form-control"
@@ -34,7 +40,7 @@
             </div>
             <hr />
             <button class="btn bg-vue2 btn-block"
-            @click="storeEvent(eventTitle)"
+            @click="storeEvent(eventTitle, eventColor)"
             >Eintragen</button>
           </div>
         </div>
@@ -52,8 +58,9 @@ export default {
   data() {
     return {
       eventColor: "primary",
-      eventTitle: ""
-    };
+      eventTitle: "",
+      error: false
+    }
   },
   computed: {
     getBorderColor() {
@@ -65,13 +72,18 @@ export default {
   },
   methods:  {
       changeEventColor: function(color) {
-          this.eventColor = color;
-      }
+          this.eventColor = color; 
    },
    storeEvent: function(eventTitle, eventColor) {
-     store.storeEvent(eventTitle, eventColor);
-     this.eventTitle=';'
+      if (eventTitle === '') return this.error = true;
+      
+
+          store.storeEvent(eventTitle, eventColor);
+          this.eventTitle='';
+          this.eventColor = 'primary';
+          this.error = false;
    }
+  }
   }
 </script>
 
